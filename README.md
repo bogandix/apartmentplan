@@ -49,6 +49,19 @@ Optional system dependency for OCR suggestions: [Tesseract](https://github.com/t
 | `apartment-plan review` | Local correction UI + Three.js preview |
 | `apartment-plan calibrate --mm 3500 --x1 … --y1 … --x2 … --y2 …` | CLI scale set |
 | `apartment-plan export` | Re-write DXF/SVG |
+| `apartment-plan blender-export` | Build `blender/apartment_demo/` (OBJ + setup script) |
+
+## Blender
+
+```bash
+apartment-plan blender-export
+# Recommended: import ready-made wall meshes
+/Applications/Blender.app/Contents/MacOS/Blender --background --python blender/apartment_demo/scripts/setup_scene.py
+# then open blender/apartment_demo/scene/apartment_demo.blend
+```
+
+Manual fallback: import `blender/apartment_demo/assets/walls.obj` (File → Import → Wavefront).  
+DXF path: enable the AutoCAD DXF add-on, then see `blender/apartment_demo/IMPORT_DXF.md`.
 
 ## Units
 

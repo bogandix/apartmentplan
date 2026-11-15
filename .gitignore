@@ -8,6 +8,9 @@ __pycache__/
 projects/*
 !projects/5dea7491-d3ad-4f77-8ec8-7f6f5d9cdb67/
 !projects/5dea7491-d3ad-4f77-8ec8-7f6f5d9cdb67/**
+# Blender binary scenes are generated locally; keep assets/scripts tracked
+blender/**/scene/*.blend
+blender/**/scene/*.blend1
 *.egg-info/
 dist/
 build/

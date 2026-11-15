@@ -90,6 +90,30 @@ def cmd_export(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_blender_export(args: argparse.Namespace) -> int:
+    from .export_blender import export_from_project_dir
+
+    root = Path(args.root or _repo_root())
+    project_dir = Path(args.project) if args.project else latest_project_dir(root)
+    if project_dir is None:
+        print("No project found. Run: apartment-plan process", file=sys.stderr)
+        return 1
+    output = Path(args.output) if args.output else root / "blender" / "apartment_demo"
+    out = export_from_project_dir(
+        project_dir,
+        output_dir=output,
+        wall_thickness_m=args.thickness,
+        provisional_mm_per_px=args.provisional_mm_per_px,
+    )
+    print(f"Blender project: {out}")
+    print(f"Next: open {out / 'README.md'}")
+    print(
+        "Build .blend with:\n"
+        f'  blender --background --python "{out / "scripts" / "setup_scene.py"}"'
+    )
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="apartment-plan",
@@ -128,6 +152,29 @@ def build_parser() -> argparse.ArgumentParser:
     p_export = sub.add_parser("export", help="Re-export DXF/SVG from the current project")
     p_export.add_argument("--project", help="Path to a projects/<id> directory")
     p_export.set_defaults(func=cmd_export)
+
+    p_blend = sub.add_parser(
+        "blender-export",
+        help="Build a Blender project folder (OBJ walls/floor + setup script)",
+    )
+    p_blend.add_argument("--project", help="Path to a projects/<id> directory")
+    p_blend.add_argument(
+        "--output",
+        help="Output folder (default: blender/apartment_demo)",
+    )
+    p_blend.add_argument(
+        "--thickness",
+        type=float,
+        default=0.12,
+        help="Wall thickness in metres (default 0.12)",
+    )
+    p_blend.add_argument(
+        "--provisional-mm-per-px",
+        type=float,
+        default=None,
+        help="If uncalibrated, provisional mm/px scale for mesh export",
+    )
+    p_blend.set_defaults(func=cmd_blender_export)
 
     return parser
 

@@ -1,0 +1,9 @@
+# Apartment plan digitizer — Floor
+mtllib floor.mtl
+o Floor
+usemtl FloorConcrete
+v -0.282000 0.033000 -0.010000
+v 15.771000 0.033000 -0.010000
+v 15.771000 21.450000 -0.010000
+v -0.282000 21.450000 -0.010000
+f 1 2 3 4
