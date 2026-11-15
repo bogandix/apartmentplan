@@ -116,3 +116,24 @@ Tests (`pytest`, 66)
   file names per state.
 - `test_review_api.py` edit/undo, invalid calibration rejected, 3D scene in
   metres, no external URLs in the page, reprocess guard.
+
+---
+
+## 2026-11-15 — Run 1 on `input/IMG_20261115_0002.pdf`: automatic draft
+
+Status: **draft only — UNCALIBRATED, not reviewed**. Output in
+`projects/IMG_20261115_0002/` (replaces the old `projects/5dea7491-…` demo).
+
+Command: `apartment-plan process`
+
+- Sheet detected as sideways and rotated 90° clockwise; no skew.
+- 5 smaller drawings/marks outside the plan ignored (key plan, stamp, …).
+- 46 wall candidates, 5 opening suggestions, 1 room outline, 32 OCR texts
+  (OCR read 815, 295, 400, 220, 355 among the printed dimensions).
+- What the draft gets right: outer structural walls, balcony parapet, the
+  dormitor/living, living/kitchen and kitchen/birou partitions.
+- What it gets wrong (expected, left for review): about 20 red "uncertain"
+  bands are furniture, door leaves and fixtures; door and window gaps are not
+  closed, so only the balcony is outlined as a room; the top wall above the
+  kitchen counter is cut short where the counter is drawn against it.
+- Exports are `plan_UNCALIBRATED.dxf/.svg` in pixel units.
