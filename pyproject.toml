@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apartment-plan"
+version = "0.1.0"
+description = "Digitize scanned apartment plans into editable DXF/SVG and a basic 3D preview"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "opencv-python-headless>=4.8,<5",
+  "pymupdf>=1.23,<2",
+  "ezdxf>=1.1",
+  "pytesseract>=0.3.10",
+  "numpy>=1.24",
+  "Flask>=3.0",
+  "Pillow>=10.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+apartment-plan = "apartment_plan.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+apartment_plan = ["web/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

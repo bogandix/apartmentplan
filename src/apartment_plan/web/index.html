@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apartment Plan Review</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Apartment Plan Review</h1>
+      <p id="status" class="status warn">Loading…</p>
+    </div>
+    <div class="actions">
+      <button id="btn-export" type="button">Re-export DXF/SVG</button>
+      <label class="inline">Wall height (mm)
+        <input id="wall-height" type="number" min="1" step="1" value="2700" />
+      </label>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>2D draft on scan</h2>
+      <p class="hint">Click two points on a known wall, enter its real length in mm, then Calibrate.</p>
+      <div class="canvas-wrap">
+        <canvas id="plan"></canvas>
+      </div>
+      <div class="tools">
+        <label>Measured length (mm)
+          <input id="measured-mm" type="number" min="1" step="1" placeholder="e.g. 3500" />
+        </label>
+        <button id="btn-calibrate" type="button">Calibrate from selection</button>
+        <button id="btn-clear-selection" type="button" class="secondary">Clear selection</button>
+        <span id="selection-info" class="muted"></span>
+      </div>
+      <div class="tools">
+        <button id="btn-mode-select" type="button" class="secondary active">Select wall</button>
+        <button id="btn-mode-draw" type="button" class="secondary">Draw wall</button>
+        <button id="btn-remove" type="button" class="danger" disabled>Remove selected wall</button>
+      </div>
+      <ul id="warnings" class="warnings"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>3D preview</h2>
+      <p class="hint">Illustrative walls from corrected geometry. Verify scale before trusting sizes.</p>
+      <div id="view3d"></div>
+      <p id="scene-note" class="muted"></p>
+    </section>
+  </main>
+
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>
