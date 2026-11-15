@@ -8,7 +8,7 @@ from typing import Any
 from uuid import uuid4
 
 
-PROJECT_SCHEMA_VERSION = 1
+PROJECT_SCHEMA_VERSION = 2
 
 
 class EntityType(str, Enum):
@@ -16,6 +16,7 @@ class EntityType(str, Enum):
     ROOM = "room"
     DOOR = "door"
     WINDOW = "window"
+    OPENING = "opening"  # gap in a wall; door/window not yet decided
     TEXT = "text"
     FURNITURE = "furniture"
 
@@ -44,6 +45,8 @@ class Segment:
     end: Point2D
     confidence: Confidence = Confidence.MEDIUM
     thickness_mm: float | None = None
+    # Thickness measured on the scan (pixels). An estimate for review, not a survey value.
+    thickness_px: float | None = None
     label: str | None = None
     source: str = "auto"  # auto | user
     removed: bool = False
@@ -74,6 +77,10 @@ class TextLabel:
     confidence: Confidence = Confidence.LOW
     source: str = "ocr"
     removed: bool = False
+    width: float = 0.0
+    height: float = 0.0
+    # "dimension" when the text looks like a printed length, else "label"
+    kind: str = "label"
 
 
 @dataclass
@@ -89,6 +96,9 @@ class Calibration:
     origin_px: Point2D = field(default_factory=lambda: Point2D(0.0, 0.0))
     flip_y: bool = True
     calibrated: bool = False
+    # "measured"  — the user measured a real wall (trusted scale)
+    # "printed"   — taken from a dimension printed on the plan (provisional)
+    method: str | None = None
     note: str = "UNCALIBRATED — not real scale until a measured wall length is set"
 
 
@@ -100,6 +110,13 @@ class SourceInfo:
     image_height: int = 0
     rendered_path: str | None = None
     warnings: list[str] = field(default_factory=list)
+    # How the normalized image was derived from the original (which is never modified)
+    rotation_deg: int = 0
+    skew_deg: float = 0.0
+    dpi: int | None = None
+    # Plan region inside the normalized image: [x0, y0, x1, y1] in pixels
+    plan_bbox: list[float] | None = None
+    original_sha256: str | None = None
 
 
 @dataclass
@@ -115,6 +132,8 @@ class Project:
     wall_height_mm: float = 2700.0
     units_display: str = "m"
     drawing_units: str = "mm"
+    # Chronological log of user edits (action, entity id, timestamp)
+    edits: list[dict[str, Any]] = field(default_factory=list)
 
     @staticmethod
     def new(source: SourceInfo) -> "Project":
@@ -140,6 +159,22 @@ class Project:
     def is_calibrated(self) -> bool:
         return bool(self.calibration.calibrated and self.calibration.scale_mm_per_px)
 
+    def is_verified_scale(self) -> bool:
+        """True only when the scale comes from a wall the user measured."""
+        return self.is_calibrated() and self.calibration.method == "measured"
+
+    def scale_state(self) -> str:
+        if not self.is_calibrated():
+            return "UNCALIBRATED"
+        return "calibrated" if self.is_verified_scale() else "PROVISIONAL"
+
+    def log_edit(self, action: str, **details: Any) -> None:
+        from datetime import datetime, timezone
+
+        self.edits.append(
+            {"at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "action": action, **details}
+        )
+
 
 def _point_from(d: dict[str, Any] | None) -> Point2D | None:
     if d is None:
@@ -152,7 +187,8 @@ def project_to_dict(project: Project) -> dict[str, Any]:
 
 
 def project_from_dict(data: dict[str, Any]) -> Project:
-    source = SourceInfo(**data["source"])
+    known = set(SourceInfo.__dataclass_fields__)
+    source = SourceInfo(**{k: v for k, v in data["source"].items() if k in known})
     cal_raw = data["calibration"]
     calibration = Calibration(
         segment_id=cal_raw.get("segment_id"),
@@ -163,6 +199,8 @@ def project_from_dict(data: dict[str, Any]) -> Project:
         origin_px=_point_from(cal_raw.get("origin_px")) or Point2D(0.0, 0.0),
         flip_y=bool(cal_raw.get("flip_y", True)),
         calibrated=bool(cal_raw.get("calibrated", False)),
+        # v1 projects could only be calibrated from a user-entered length
+        method=cal_raw.get("method") or ("measured" if cal_raw.get("calibrated") else None),
         note=cal_raw.get("note", ""),
     )
 
@@ -174,6 +212,7 @@ def project_from_dict(data: dict[str, Any]) -> Project:
             end=Point2D(**d["end"]),
             confidence=Confidence(d.get("confidence", "medium")),
             thickness_mm=d.get("thickness_mm"),
+            thickness_px=d.get("thickness_px"),
             label=d.get("label"),
             source=d.get("source", "auto"),
             removed=bool(d.get("removed", False)),
@@ -199,11 +238,14 @@ def project_from_dict(data: dict[str, Any]) -> Project:
             confidence=Confidence(d.get("confidence", "low")),
             source=d.get("source", "ocr"),
             removed=bool(d.get("removed", False)),
+            width=float(d.get("width", 0.0)),
+            height=float(d.get("height", 0.0)),
+            kind=d.get("kind", "label"),
         )
 
     return Project(
         id=data["id"],
-        schema_version=int(data.get("schema_version", PROJECT_SCHEMA_VERSION)),
+        schema_version=PROJECT_SCHEMA_VERSION,  # older files are upgraded on load
         source=source,
         calibration=calibration,
         walls=[seg(w) for w in data.get("walls", [])],
@@ -213,4 +255,5 @@ def project_from_dict(data: dict[str, Any]) -> Project:
         wall_height_mm=float(data.get("wall_height_mm", 2700.0)),
         units_display=data.get("units_display", "m"),
         drawing_units=data.get("drawing_units", "mm"),
+        edits=list(data.get("edits", [])),
     )

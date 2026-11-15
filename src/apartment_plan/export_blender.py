@@ -44,7 +44,7 @@ def export_blender_project(
         d.mkdir(parents=True, exist_ok=True)
 
     working = project
-    scale_note = "calibrated"
+    scale_note = project.calibration.note
     if not project.is_calibrated():
         scale = provisional_mm_per_px or DEFAULT_PROVISIONAL_MM_PER_PX
         working = _with_provisional_scale(project, scale)
@@ -65,10 +65,11 @@ def export_blender_project(
 
     # Copy CAD + references
     exports = project_dir / "exports"
-    for name in ("plan_UNCALIBRATED.dxf", "plan_calibrated.dxf", "plan_UNCALIBRATED.svg", "plan_calibrated.svg"):
-        src = exports / name
-        if src.is_file():
-            shutil.copy2(src, assets / name)
+    for old in list(assets.glob("plan_*.dxf")) + list(assets.glob("plan_*.svg")):
+        old.unlink()
+    for src in sorted(exports.glob("plan_*")):
+        if src.suffix in (".dxf", ".svg"):
+            shutil.copy2(src, assets / src.name)
 
     for name in ("source.png", "overlay.png", "project.json"):
         src = project_dir / name

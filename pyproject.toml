@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "apartment-plan"
-version = "0.1.0"
+version = "0.2.0"
 description = "Digitize scanned apartment plans into editable DXF/SVG and a basic 3D preview"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -28,7 +28,7 @@ apartment-plan = "apartment_plan.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-apartment_plan = ["web/*"]
+apartment_plan = ["web/*", "web/vendor/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

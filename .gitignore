@@ -4,10 +4,12 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .DS_Store
-# Keep generated runs out of git by default; demo project below is force-tracked
+# Keep generated runs out of git by default; the demo project below is tracked
 projects/*
-!projects/5dea7491-d3ad-4f77-8ec8-7f6f5d9cdb67/
-!projects/5dea7491-d3ad-4f77-8ec8-7f6f5d9cdb67/**
+!projects/IMG_20261115_0002/
+!projects/IMG_20261115_0002/**
+# Source scans stay local
+input/*
 # Blender binary scenes are generated locally; keep assets/scripts tracked
 blender/**/scene/*.blend
 blender/**/scene/*.blend1
@@ -16,3 +18,4 @@ dist/
 build/
 .idea/
 .vscode/
+!input/.gitkeep
