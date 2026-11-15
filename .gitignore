@@ -4,8 +4,10 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .DS_Store
-projects/
-/input/
+# Keep generated runs out of git by default; demo project below is force-tracked
+projects/*
+!projects/5dea7491-d3ad-4f77-8ec8-7f6f5d9cdb67/
+!projects/5dea7491-d3ad-4f77-8ec8-7f6f5d9cdb67/**
 *.egg-info/
 dist/
 build/
