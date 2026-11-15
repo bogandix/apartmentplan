@@ -25,8 +25,10 @@ Or inside Blender: **Scripting** → Open `scripts/setup_scene.py` → **Run Scr
 
 1. File → New → General  
 2. Scene Properties → Units → Metric, Unit Scale `1.0`, Length `Meters`  
-3. File → Import → Wavefront (.obj) → `assets/walls.obj`  
-4. File → Import → Wavefront (.obj) → `assets/floor.obj`  
+3. File → Import → Wavefront (.obj) → `assets/walls.obj`. In the import
+   options on the right set **Forward Axis = Y** and **Up Axis = Z**
+   (the files are Z-up; with Blender's default Y-up the walls lie on their side).
+4. Same for `assets/floor.obj`.  
 5. Optional: import `assets/plan_*.dxf` via the DXF importer addon (see `IMPORT_DXF.md`)
 
 ## Folder layout

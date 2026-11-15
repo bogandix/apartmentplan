@@ -124,8 +124,12 @@ apartment-plan blender-export
 # then open blender/apartment_demo/scene/apartment_demo.blend
 ```
 
-Manual fallback: import `blender/apartment_demo/assets/walls.obj`
-(File → Import → Wavefront). For DXF see `blender/apartment_demo/IMPORT_DXF.md`.
+Without the terminal: open Blender → **Scripting** tab → **Text → Open** →
+`blender/apartment_demo/scripts/setup_scene.py` → **Run Script** (▶).
+
+Manual fallback: File → Import → Wavefront (.obj) →
+`blender/apartment_demo/assets/walls.obj` with **Forward Axis = Y, Up Axis = Z**
+(the meshes are Z-up). For DXF see `blender/apartment_demo/IMPORT_DXF.md`.
 
 ## Development
 

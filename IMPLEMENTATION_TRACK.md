@@ -203,3 +203,23 @@ Open items
 - Perspective correction for photographed plans is not implemented.
 - The live Blender `.blend` build was not run in this round (Blender was not
   invoked); only the OBJ/script package was regenerated.
+
+---
+
+## 2026-11-15 — Blender package fixes
+
+Status: **fixed in code; not yet run inside Blender** (Blender is not installed
+on this machine).
+
+- OBJ import axes: the meshes are written Z-up, but Blender's OBJ importer
+  defaults to Y-up, so walls would have imported lying on their side. The
+  setup script now passes `forward_axis="Y", up_axis="Z"` (3.x:
+  `axis_forward/axis_up`); manual-import instructions say the same.
+- The scan underlay is now placed and sized at plan scale (21.85 m wide,
+  centred at 3.98, 2.71 m) so it sits under the walls instead of a fixed 10 m
+  square at the origin.
+- Camera and lights are placed from the plan extent; the camera tracks the
+  plan centre.
+- The script also works when run from Blender's Text Editor, not only with
+  `blender --python`.
+- `project_meta.json` records the scale state (`PROVISIONAL` for this plan).

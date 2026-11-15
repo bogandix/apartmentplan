@@ -12,7 +12,20 @@ from __future__ import annotations
 from pathlib import Path
 import bpy
 
-ROOT = Path(__file__).resolve().parents[1]
+def _script_file() -> Path:
+    """Works both with `blender --python` and when run from Blender's Text Editor."""
+    here = Path(__file__)
+    if here.is_file():
+        return here.resolve()
+    for text in bpy.data.texts:
+        if text.filepath:
+            candidate = Path(bpy.path.abspath(text.filepath))
+            if candidate.name == "setup_scene.py" and candidate.is_file():
+                return candidate.resolve()
+    raise RuntimeError("Open scripts/setup_scene.py from disk (Text > Open) before running it.")
+
+
+ROOT = _script_file().parents[1]
 ASSETS = ROOT / "assets"
 SCENE_DIR = ROOT / "scene"
 SCENE_DIR.mkdir(parents=True, exist_ok=True)
@@ -20,6 +33,10 @@ BLEND_PATH = SCENE_DIR / "apartment_demo.blend"
 
 SCALE_NOTE = "PROVISIONAL scale from a dimension printed on the plan: 4.775 m over 510.5 px (1300,433)-(1300,944) px = 9.3536 mm/px. Not verified - measure a real wall to confirm."
 CALIBRATED = True
+SCALE_STATE = "PROVISIONAL"
+UNDERLAY_CENTER = (3.9846, 2.7125)
+UNDERLAY_SIZE = 21.8500
+PLAN_EXTENT = (0.1964, 0.1730, 13.0155, 8.0160)  # min x, min y, max x, max y (m)
 
 
 def clear_scene() -> None:
@@ -60,9 +77,10 @@ def import_obj(path: Path, collection_name: str):
     before = set(bpy.data.objects)
     # Blender 4.x uses wm.obj_import; 3.x uses import_scene.obj
     if hasattr(bpy.ops.wm, "obj_import"):
-        bpy.ops.wm.obj_import(filepath=str(path))
+        # Our OBJ files are Z-up (Blender's own convention), not the OBJ default Y-up
+        bpy.ops.wm.obj_import(filepath=str(path), forward_axis="Y", up_axis="Z")
     else:
-        bpy.ops.import_scene.obj(filepath=str(path))
+        bpy.ops.import_scene.obj(filepath=str(path), axis_forward="Y", axis_up="Z")
     imported = [o for o in bpy.data.objects if o not in before]
     for obj in imported:
         link_to_collection(obj, col)
@@ -76,13 +94,13 @@ def add_underlay() -> None:
         return
     col = ensure_collection("References")
     # Large empty image empty as reference in ortho top view
-    bpy.ops.object.empty_add(type="IMAGE", location=(0, 0, -0.02))
+    bpy.ops.object.empty_add(type="IMAGE", location=(UNDERLAY_CENTER[0], UNDERLAY_CENTER[1], -0.02))
     empty = bpy.context.active_object
     empty.name = "PlanUnderlay"
     try:
         img = bpy.data.images.load(str(underlay))
         empty.data = img
-        empty.empty_display_size = 10.0
+        empty.empty_display_size = UNDERLAY_SIZE  # scan drawn at plan scale, under the walls
     except Exception:
         pass
     link_to_collection(empty, col)
@@ -90,22 +108,36 @@ def add_underlay() -> None:
 
 def add_lights_camera(floor_obj) -> None:
     col = ensure_collection("SceneSetup")
-    bpy.ops.object.light_add(type="AREA", location=(2.0, -2.0, 4.0))
+    x0, y0, x1, y1 = PLAN_EXTENT
+    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    span = max(x1 - x0, y1 - y0, 1.0)
+
+    bpy.ops.object.empty_add(type="PLAIN_AXES", location=(cx, cy, 0.0))
+    target = bpy.context.active_object
+    target.name = "PlanCentre"
+    link_to_collection(target, col)
+
+    bpy.ops.object.light_add(type="AREA", location=(cx, cy, 6.0))
     light = bpy.context.active_object
     light.name = "KeyLight"
-    light.data.energy = 250.0
-    light.data.size = 3.0
+    light.data.energy = 60.0 * span * span
+    light.data.size = span
     link_to_collection(light, col)
 
-    bpy.ops.object.light_add(type="SUN", location=(0, 0, 6))
+    bpy.ops.object.light_add(type="SUN", location=(cx, cy, 10.0), rotation=(0.6, 0.2, 0.8))
     sun = bpy.context.active_object
     sun.name = "Sun"
     sun.data.energy = 2.0
     link_to_collection(sun, col)
 
-    bpy.ops.object.camera_add(location=(6.0, -8.0, 5.5), rotation=(1.1, 0.0, 0.6))
+    # Three-quarter view from the south-east, always aimed at the plan centre
+    bpy.ops.object.camera_add(location=(cx + 0.35 * span, cy - 0.95 * span, 0.9 * span))
     cam = bpy.context.active_object
     cam.name = "OverviewCamera"
+    track = cam.constraints.new(type="TRACK_TO")
+    track.target = target
+    track.track_axis = "TRACK_NEGATIVE_Z"
+    track.up_axis = "UP_Y"
     link_to_collection(cam, col)
     bpy.context.scene.camera = cam
 
@@ -117,6 +149,7 @@ def add_scale_warning() -> None:
     empty.name = "SCALE_NOTE"
     empty["scale_note"] = SCALE_NOTE
     empty["calibrated"] = CALIBRATED
+    empty["scale_state"] = SCALE_STATE
     link_to_collection(empty, col)
 
 

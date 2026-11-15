@@ -1,6 +1,20 @@
 {
   "project_id": "IMG_20261115_0002",
   "calibrated": true,
+  "scale_state": "PROVISIONAL",
+  "underlay": {
+    "center_m": [
+      3.98462291870715,
+      2.7125367286973554
+    ],
+    "size_m": 21.849951028403524
+  },
+  "plan_extent_m": [
+    0.19642507345739468,
+    0.1730411361410382,
+    13.015499510284036,
+    8.016013712047013
+  ],
   "scale_note": "PROVISIONAL scale from a dimension printed on the plan: 4.775 m over 510.5 px (1300,433)-(1300,944) px = 9.3536 mm/px. Not verified - measure a real wall to confirm.",
   "wall_height_m": 2.7,
   "wall_thickness_m": 0.12,
