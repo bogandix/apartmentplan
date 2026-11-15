@@ -7,6 +7,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
+from .detect import polygon_centroid
 from .models import Project
 
 _WALL_COLORS = {  # BGR
@@ -31,8 +32,8 @@ def render_overlay(image_bgr: np.ndarray, project: Project) -> np.ndarray:
         if len(pts) >= 3:
             cv2.polylines(out, [pts], True, (90, 170, 90), 1, cv2.LINE_AA)
             if room.label:
-                m = pts.mean(axis=0).astype(int)
-                cv2.putText(out, _ascii(room.label)[:24], (int(m[0]) - 40, int(m[1]) + 30),
+                c = polygon_centroid(room.points)
+                cv2.putText(out, _ascii(room.label)[:24], (int(c.x) - 50, int(c.y) + 34),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (40, 110, 40), 1, cv2.LINE_AA)
 
     for wall in project.active_walls():
@@ -60,13 +61,16 @@ def render_overlay(image_bgr: np.ndarray, project: Project) -> np.ndarray:
         banner = "UNCALIBRATED DRAFT - not real scale. Review the trace and enter a measured wall length."
         color = (0, 0, 200)
     elif state == "PROVISIONAL":
-        banner = "PROVISIONAL SCALE (printed dimension, not verified) - " + _ascii(project.calibration.note)
+        banner = _ascii(project.calibration.note)
         color = (0, 110, 220)
     else:
         banner = _ascii(project.calibration.note)
         color = (40, 140, 40)
     bar = np.full((40, out.shape[1], 3), 255, np.uint8)
-    cv2.putText(bar, banner[:170], (10, 27), cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2, cv2.LINE_AA)
+    size = 0.6
+    while size > 0.3 and cv2.getTextSize(banner, cv2.FONT_HERSHEY_SIMPLEX, size, 2)[0][0] > out.shape[1] - 20:
+        size -= 0.02
+    cv2.putText(bar, banner, (10, 27), cv2.FONT_HERSHEY_SIMPLEX, size, color, 2, cv2.LINE_AA)
     return np.vstack([bar, out])
 
 

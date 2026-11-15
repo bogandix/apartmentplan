@@ -1,10 +1,10 @@
 {
-  "project_id": "5dea7491-d3ad-4f77-8ec8-7f6f5d9cdb67",
-  "calibrated": false,
-  "scale_note": "UNCALIBRATED provisional scale 9.0000 mm/px \u2014 re-export after apartment-plan calibrate for real dimensions",
+  "project_id": "IMG_20261115_0002",
+  "calibrated": true,
+  "scale_note": "PROVISIONAL scale from a dimension printed on the plan: 4.775 m over 510.5 px (1300,433)-(1300,944) px = 9.3536 mm/px. Not verified - measure a real wall to confirm.",
   "wall_height_m": 2.7,
   "wall_thickness_m": 0.12,
-  "wall_count": 80,
+  "wall_count": 24,
   "units": "metres",
   "assets": {
     "walls_obj": "assets/walls.obj",

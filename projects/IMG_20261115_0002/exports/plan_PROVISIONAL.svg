@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="14357.36mm" height="10480.04mm" viewBox="0 0 14357.36 10480.04" data-scale-state="PROVISIONAL" data-units="mm">
+<title>Apartment plan - PROVISIONAL_mm_from_printed_dimension</title>
+<g id="rooms">
+<path class="room" d="M 4033.54,2172.18 L 4033.54,5792.01 L 3949.36,5885.55 L 3949.36,6418.70 L 4024.19,6512.24 L 4024.19,6923.80 L 9673.75,6923.80 L 9767.28,6951.86 L 9851.47,7082.81 L 10431.39,7082.81 L 10552.98,6933.15 L 10973.89,6923.80 L 11011.31,6811.55 L 11114.20,6736.73 L 11226.44,6736.73 L 11329.33,6820.91 L 11581.88,6820.91 L 11591.23,6624.48 L 11656.71,6568.36 L 11656.71,5885.55 L 11263.86,5885.55 L 11170.32,5810.72 L 10506.22,5810.72 L 10412.68,5913.61 L 10328.50,5857.49 L 10319.14,5763.95 L 9617.63,5763.95 L 9524.09,5848.14 L 8074.29,5848.14 L 7990.10,5801.37 L 7971.40,2190.89 L 6297.11,2190.89 L 6156.80,2144.12 L 6063.27,1985.11 L 4155.14,1985.11 L 4127.08,2088.00 Z" fill="#2aaa77" fill-opacity="0.10" stroke="#22aa77" stroke-width="21.37"/>
+<text class="roomlabel" font-family="sans-serif" font-size="183.13" fill="#117755" text-anchor="middle" x="6644.61" y="4835.26">LIVING + HOL ≈23.19 m²</text>
+<path class="room" d="M 956.22,1994.46 L 956.22,6605.78 L 2284.42,6605.78 L 2377.96,6680.60 L 2892.41,6680.60 L 2948.53,6615.13 L 3126.25,6605.78 L 3275.90,6521.59 L 3425.56,6605.78 L 3818.41,6605.78 L 3827.76,6474.83 L 3893.24,6418.70 L 3893.24,5885.55 L 3827.76,5792.01 L 3827.76,2200.24 L 2415.37,2200.24 L 2293.78,2162.83 L 2190.89,1994.46 Z" fill="#2aaa77" fill-opacity="0.10" stroke="#22aa77" stroke-width="21.37"/>
+<text class="roomlabel" font-family="sans-serif" font-size="183.13" fill="#117755" text-anchor="middle" x="2380.23" y="4366.24">DORMITOR ≈12.99 m²</text>
+<path class="room" d="M 13415.18,1966.40 L 12199.21,1966.40 L 12096.32,2134.77 L 11974.73,2172.18 L 10506.22,2172.18 L 10506.22,5754.60 L 11170.32,5754.60 L 11263.86,5679.77 L 13415.18,5679.77 Z" fill="#2aaa77" fill-opacity="0.10" stroke="#22aa77" stroke-width="21.37"/>
+<text class="roomlabel" font-family="sans-serif" font-size="183.13" fill="#117755" text-anchor="middle" x="11975.53" y="3888.32">BIROU ≈10.52 m²</text>
+<path class="room" d="M 3229.13,825.27 L 3229.13,1732.56 L 3986.77,1741.92 L 4127.08,1844.81 L 4155.14,1928.99 L 6063.27,1928.99 L 6156.80,1751.27 L 6297.11,1704.50 L 8757.10,1704.50 L 8897.40,1751.27 L 8990.94,1919.63 L 10188.19,1919.63 L 10216.26,1816.74 L 10356.56,1713.86 L 11160.97,1704.50 L 11160.97,825.27 Z" fill="#2aaa77" fill-opacity="0.10" stroke="#22aa77" stroke-width="21.37"/>
+<text class="roomlabel" font-family="sans-serif" font-size="183.13" fill="#117755" text-anchor="middle" x="7148.98" y="1319.26">BALCON ≈7.75 m²</text>
+<path class="room" d="M 8177.18,2190.89 L 8177.18,5642.36 L 9524.09,5642.36 L 9617.63,5707.83 L 10319.14,5707.83 L 10319.14,2144.12 L 10216.26,2059.94 L 10188.19,1975.76 L 8990.94,1975.76 L 8953.52,2088.00 L 8822.57,2181.53 Z" fill="#2aaa77" fill-opacity="0.10" stroke="#22aa77" stroke-width="21.37"/>
+<text class="roomlabel" font-family="sans-serif" font-size="183.13" fill="#117755" text-anchor="middle" x="9264.96" y="3859.70">BUCATARIE ≈7.73 m²</text>
+<path class="room" d="M 11712.83,5885.55 L 11712.83,6568.36 L 11787.66,6661.90 L 11787.66,6923.80 L 11684.77,7026.69 L 11366.74,7026.69 L 11366.74,8354.89 L 13415.18,8354.89 L 13415.18,5885.55 Z" fill="#2aaa77" fill-opacity="0.10" stroke="#22aa77" stroke-width="21.37"/>
+<text class="roomlabel" font-family="sans-serif" font-size="183.13" fill="#117755" text-anchor="middle" x="12466.98" y="7178.62">BAIE 1 ≈4.64 m²</text>
+<path class="room" d="M 3088.83,6811.55 L 2948.53,6802.20 L 2892.41,6736.73 L 2377.96,6736.73 L 2284.42,6811.55 L 956.22,6811.55 L 956.22,8420.37 L 3088.83,8420.37 Z" fill="#2aaa77" fill-opacity="0.10" stroke="#22aa77" stroke-width="21.37"/>
+<text class="roomlabel" font-family="sans-serif" font-size="183.13" fill="#117755" text-anchor="middle" x="2030.42" y="7605.09">BAIE 2 ≈3.48 m²</text>
+</g>
+<g id="walls">
+<line class="wall" id="wall-14321cc8-87c2-434d-a902-a655a71676a2" stroke="#2b2b2b" stroke-linecap="square" stroke-width="74.83" x1="3168.34" y1="769.14" x2="11240.47" y2="769.14" data-length-mm="8072.1"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="3168.34" y1="769.14" x2="11240.47" y2="769.14"/>
+<line class="wall" id="wall-27efeab5-f219-463c-a436-16d83f4117b3" stroke="#2b2b2b" stroke-linecap="square" stroke-width="430.26" x1="10412.68" y1="1938.34" x2="11974.73" y2="1938.34" data-length-mm="1562.0"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="10412.68" y1="1938.34" x2="11974.73" y2="1938.34"/>
+<line class="wall" id="wall-f3e759ff-4872-461d-bdda-c3e54c445e34" stroke="#2b2b2b" stroke-linecap="square" stroke-width="439.62" x1="6297.11" y1="1952.37" x2="8757.10" y2="1947.69" data-length-mm="2460.0"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="6297.11" y1="1952.37" x2="8757.10" y2="1947.69"/>
+<line class="wall" id="wall-db853a39-dbea-41eb-92c0-b866d85d85e9" stroke="#2b2b2b" stroke-linecap="square" stroke-width="430.26" x1="2415.37" y1="1966.40" x2="3925.98" y2="1966.40" data-length-mm="1510.6"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="2415.37" y1="1966.40" x2="3925.98" y2="1966.40"/>
+<line class="wall" id="wall-8dffacea-a2eb-4cf5-98fc-1df27f7999e3" stroke="#2b2b2b" stroke-linecap="square" stroke-width="159.01" x1="8074.29" y1="5740.57" x2="9524.09" y2="5740.57" data-length-mm="1449.8"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="8074.29" y1="5740.57" x2="9524.09" y2="5740.57"/>
+<line class="wall" id="wall-96411891-9fbb-4809-8c2e-fbdec5e4b98d" stroke="#2b2b2b" stroke-linecap="square" stroke-width="168.36" x1="769.14" y1="6708.66" x2="2284.42" y2="6708.66" data-length-mm="1515.3"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="769.14" y1="6708.66" x2="2284.42" y2="6708.66"/>
+<line class="wall" id="wall-113d2efe-ffc1-4876-9a4d-441775ff0c0b" stroke="#2b2b2b" stroke-linecap="square" stroke-width="327.38" x1="3275.90" y1="7110.87" x2="9673.75" y2="7115.55" data-length-mm="6397.8"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="3275.90" y1="7110.87" x2="9673.75" y2="7115.55"/>
+<line class="wall" id="wall-8d32e6a9-4e31-4b44-b03f-ea11cdc0098c" stroke="#2b2b2b" stroke-linecap="square" stroke-width="374.14" x1="11011.31" y1="8560.67" x2="13588.22" y2="8560.67" data-length-mm="2576.9"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="11011.31" y1="8560.67" x2="13588.22" y2="8560.67"/>
+<line class="wall" id="wall-74c2bc94-f851-4e85-8706-fa15db223c7f" stroke="#2b2b2b" stroke-linecap="square" stroke-width="327.38" x1="769.14" y1="8612.12" x2="3275.90" y2="8612.12" data-length-mm="2506.8"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="769.14" y1="8612.12" x2="3275.90" y2="8612.12"/>
+<line class="wall" id="wall-2863de00-fe59-410c-ace8-56dd6263b2c4" stroke="#2b2b2b" stroke-linecap="square" stroke-width="121.60" x1="11240.47" y1="769.14" x2="11240.47" y2="1938.34" data-length-mm="1169.2"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="11240.47" y1="769.14" x2="11240.47" y2="1938.34"/>
+<line class="wall" id="wall-adce850b-d339-4127-a2ff-4493e89e2ac1" stroke="#2b2b2b" stroke-linecap="square" stroke-width="84.18" x1="3168.34" y1="769.14" x2="3168.34" y2="1966.40" data-length-mm="1197.3"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="3168.34" y1="769.14" x2="3168.34" y2="1966.40"/>
+<line class="wall" id="wall-1dc5c6a4-0b62-4678-bbdd-829c85d1615f" stroke="#2b2b2b" stroke-linecap="square" stroke-width="289.96" x1="13588.22" y1="1704.50" x2="13588.22" y2="8560.67" data-length-mm="6856.2"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="13588.22" y1="1704.50" x2="13588.22" y2="8560.67"/>
+<line class="wall" id="wall-a2d9ab4f-e1b6-4847-acbb-c75a54d4959a" stroke="#2b2b2b" stroke-linecap="square" stroke-width="149.66" x1="10412.68" y1="1938.34" x2="10412.68" y2="5820.07" data-length-mm="3881.7"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="10412.68" y1="1938.34" x2="10412.68" y2="5820.07"/>
+<line class="wall" id="wall-68937c2b-4005-4f01-b82d-91ec67c47980" stroke="#2b2b2b" stroke-linecap="square" stroke-width="168.36" x1="8074.29" y1="1952.37" x2="8074.29" y2="5740.57" data-length-mm="3788.2"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="8074.29" y1="1952.37" x2="8074.29" y2="5740.57"/>
+<line class="wall" id="wall-a1a308fc-2c19-4875-8622-c302f02a9492" stroke="#2b2b2b" stroke-linecap="square" stroke-width="336.73" x1="769.14" y1="1751.27" x2="769.14" y2="8612.12" data-length-mm="6860.8"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="769.14" y1="1751.27" x2="769.14" y2="8612.12"/>
+<line class="wall" id="wall-2754a700-4089-4b61-b23a-6ed00e29a80e" stroke="#2b2b2b" stroke-linecap="square" stroke-width="159.01" x1="3925.98" y1="1966.40" x2="3925.98" y2="5792.01" data-length-mm="3825.6"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="3925.98" y1="1966.40" x2="3925.98" y2="5792.01"/>
+<line class="wall" id="wall-809a4ff6-cd3a-479d-8ca5-3d4d20744996" stroke="#2b2b2b" stroke-linecap="square" stroke-width="346.08" x1="11170.32" y1="6923.80" x2="11170.32" y2="8560.67" data-length-mm="1636.9"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="11170.32" y1="6923.80" x2="11170.32" y2="8560.67"/>
+<line class="wall" id="wall-2ae38670-9dc7-4aee-875e-c01507cc2eb8" stroke="#2b2b2b" stroke-linecap="square" stroke-width="336.73" x1="3275.90" y1="6708.66" x2="3275.90" y2="8612.12" data-length-mm="1903.5"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="3275.90" y1="6708.66" x2="3275.90" y2="8612.12"/>
+<line class="wall" id="wall-db2c510d-75c1-4278-b0ca-719cf04efd70" stroke="#2b2b2b" stroke-linecap="square" stroke-width="159.01" x1="2985.94" y1="6708.66" x2="3921.30" y2="6708.66" data-length-mm="935.4"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="2985.94" y1="6708.66" x2="3921.30" y2="6708.66"/>
+<line class="wall" id="wall-e07048b0-05a9-406f-8aad-d866dde2cded" stroke="#2b2b2b" stroke-linecap="square" stroke-width="159.01" x1="3921.30" y1="6512.24" x2="3921.30" y2="7110.87" data-length-mm="598.6"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="3921.30" y1="6512.24" x2="3921.30" y2="7110.87"/>
+<line class="wall" id="wall-c7c5a5fa-0fb8-40c7-aaf6-50aee198d67e" stroke="#2b2b2b" stroke-linecap="square" stroke-width="159.01" x1="11263.86" y1="5782.66" x2="13583.54" y2="5782.66" data-length-mm="2319.7"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="11263.86" y1="5782.66" x2="13583.54" y2="5782.66"/>
+<line class="wall" id="wall-ffee224a-fde8-4207-ad56-edeaa29ef5e3" stroke="#2b2b2b" stroke-linecap="square" stroke-width="159.01" x1="11684.77" y1="6661.90" x2="11684.77" y2="6923.80" data-length-mm="261.9"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="11684.77" y1="6661.90" x2="11684.77" y2="6923.80"/>
+<line class="wall" id="wall-6a9d717b-75b3-4abf-a0c9-5b8f46c3e32c" stroke="#2b2b2b" stroke-linecap="square" stroke-width="159.01" x1="11170.32" y1="6923.80" x2="11684.77" y2="6923.80" data-length-mm="514.4"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="11170.32" y1="6923.80" x2="11684.77" y2="6923.80"/>
+<line class="wall" id="wall-2b60e139-9544-40f2-9f3f-faf1383d59fa" stroke="#2b2b2b" stroke-linecap="square" stroke-width="327.38" x1="10609.11" y1="7110.87" x2="11170.32" y2="7110.87" data-length-mm="561.2"/>
+<line class="axis" stroke="#ffffff" stroke-width="21.37" stroke-dasharray="128.2 85.5" x1="10609.11" y1="7110.87" x2="11170.32" y2="7110.87"/>
+</g>
+<g id="openings">
+<line class="opening" data-type="window" stroke="#0a8fb8" stroke-width="64.10" x1="3925.98" y1="1959.39" x2="6297.11" y2="1959.39"/>
+<line class="opening" data-type="window" stroke="#0a8fb8" stroke-width="64.10" x1="8757.10" y1="1947.69" x2="10412.68" y2="1947.69"/>
+<line class="opening" data-type="window" stroke="#0a8fb8" stroke-width="64.10" x1="937.51" y1="1966.40" x2="2415.37" y2="1966.40"/>
+<line class="opening" data-type="window" stroke="#0a8fb8" stroke-width="64.10" x1="11974.73" y1="1938.34" x2="13433.88" y2="1938.34"/>
+<line class="opening" data-type="door" stroke="#8a4b12" stroke-width="64.10" x1="3921.30" y1="5792.01" x2="3921.30" y2="6512.24"/>
+<line class="opening" data-type="door" stroke="#8a4b12" stroke-width="64.10" x1="2284.42" y1="6708.66" x2="2985.94" y2="6708.66"/>
+<line class="opening" data-type="door" stroke="#8a4b12" stroke-width="64.10" x1="9524.09" y1="5735.89" x2="10337.85" y2="5735.89"/>
+<line class="opening" data-type="door" stroke="#8a4b12" stroke-width="64.10" x1="10487.51" y1="5782.66" x2="11263.86" y2="5782.66"/>
+<line class="opening" data-type="door" stroke="#8a4b12" stroke-width="64.10" x1="11684.77" y1="5857.49" x2="11684.77" y2="6661.90"/>
+<line class="opening" data-type="door" stroke="#8a4b12" stroke-width="64.10" x1="9673.75" y1="7110.87" x2="10609.11" y2="7110.87"/>
+</g>
+<text class="prov" font-family="sans-serif" font-size="183.13" font-weight="bold" fill="#b35c00" x="769.14" y="9710.89">PROVISIONAL scale (printed dimension, not verified).</text>
+<text class="prov" font-family="sans-serif" font-size="183.13" font-weight="bold" fill="#b35c00" x="769.14" y="9967.28">PROVISIONAL scale from a dimension printed on the plan: 4.775 m over 510.5 px</text>
+<text class="prov" font-family="sans-serif" font-size="183.13" font-weight="bold" fill="#b35c00" x="769.14" y="10223.66">(1300,433)-(1300,944) px = 9.3536 mm/px. Not verified - measure a real wall to confirm.</text>
+</svg>

@@ -3,8 +3,8 @@
 Ready-to-import 3D structure generated from the digitized floor plan.
 
 - Units: **metres**
-- Walls: `80` extruded segments @ 2.7 m high
-- Scale: **UNCALIBRATED provisional scale 9.0000 mm/px — re-export after apartment-plan calibrate for real dimensions**
+- Walls: `24` extruded segments @ 2.7 m high
+- Scale: **PROVISIONAL scale from a dimension printed on the plan: 4.775 m over 510.5 px (1300,433)-(1300,944) px = 9.3536 mm/px. Not verified - measure a real wall to confirm.**
 
 ## Fastest path (recommended)
 

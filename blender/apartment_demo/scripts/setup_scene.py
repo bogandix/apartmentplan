@@ -18,8 +18,8 @@ SCENE_DIR = ROOT / "scene"
 SCENE_DIR.mkdir(parents=True, exist_ok=True)
 BLEND_PATH = SCENE_DIR / "apartment_demo.blend"
 
-SCALE_NOTE = "UNCALIBRATED provisional scale 9.0000 mm/px — re-export after apartment-plan calibrate for real dimensions"
-CALIBRATED = False
+SCALE_NOTE = "PROVISIONAL scale from a dimension printed on the plan: 4.775 m over 510.5 px (1300,433)-(1300,944) px = 9.3536 mm/px. Not verified - measure a real wall to confirm."
+CALIBRATED = True
 
 
 def clear_scene() -> None:
